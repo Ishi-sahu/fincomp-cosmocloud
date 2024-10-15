@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="icon" href="LOGO.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-box">
+            <h1 class="login-title">Login</h1>
+            <p class="login-subtitle">Welcome back! Please log in to your account.</p>
+            <form id="loginForm" onsubmit="return submitLogin(event)">
+                <input type="text" class="input-field" id="email" placeholder="Email" required>
+                <input type="password" class="input-field" id="password" placeholder="Password" required>
+                <a href="#" class="login-button" onclick="submitLogin(event)">Login</a>
+                <p class="error-message" id="errorMessage"></p>
+                <p class="signup-link">Don't have an account? <a href="register.html">Create one</a></p>
+                <p class="signup-link"><a href="index.html">Back to Home</a></p>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        function submitLogin(event) {
+            event.preventDefault();
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            const backendUrl = 'https://your-backend-url.com/login';
+
+            fetch(backendUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ email, password })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    window.location.href = 'dashboard.html';
+                } else {
+                    document.getElementById('errorMessage').innerText = data.message || 'Login failed';
+                }
+            })
+            .catch(error => {
+                document.getElementById('errorMessage').innerText = 'An error occurred. Please try again.';
+                console.error('Error:', error);
+            });
+        }
+    </script>
+</body>
+</html>

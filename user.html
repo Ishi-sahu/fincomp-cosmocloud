@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <link rel="stylesheet" href="user.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <header class="header">
+            <h1>User Dashboard</h1>
+            <p>Welcome back, [User's Name]!</p>
+        </header>
+
+        <section class="stats">
+            <div class="stat-card">
+                <h3>Total Income</h3>
+                <p>$5,000</p>
+            </div>
+            <div class="stat-card">
+                <h3>Total Expenses</h3>
+                <p>$2,500</p>
+            </div>
+            <div class="stat-card">
+                <h3>Net Savings</h3>
+                <p>$2,500</p>
+            </div>
+        </section>
+
+        <section class="charts">
+            <div class="chart" id="incomeChart">
+                <h3>Income Overview</h3>
+                <!-- Placeholder for a chart -->
+                <canvas id="incomeChartCanvas"></canvas>
+            </div>
+            <div class="chart" id="expenseChart">
+                <h3>Expense Overview</h3>
+                <!-- Placeholder for a chart -->
+                <canvas id="expenseChartCanvas"></canvas>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <p>&copy; 2024 Fincomp. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="user.js"></script>
+</body>
+</html>
+
+

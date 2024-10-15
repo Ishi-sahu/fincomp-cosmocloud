@@ -1,0 +1,147 @@
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-image: url(LOGO.jpg);
+}
+
+.container, 
+.login-container, 
+.register-container, 
+.dashboard-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.login-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.login-box {
+    width: 100%;
+    max-width: 400px;
+    padding: 2rem;
+    background-color: #f9f9ed;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.login-title {
+    font-size: 2.5rem; 
+    color: #4caf50;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.login-subtitle {
+    text-align: center;
+    color: #666;
+    margin-bottom: 2rem;
+}
+
+.input-field {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid #666;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+
+.input-field:focus {
+    border-color: #4caf50;
+    outline: none;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+}
+
+.error-message {
+    color: #e53935;
+    font-size: 0.875rem; 
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.login-button {
+    width: 100%;
+    padding: 1rem;
+    background-color: #4caf50;
+    color: white; 
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+     margin-left:10rem ;
+    
+}
+
+.login-button:hover {
+    background-color: #388e3c;
+}
+
+.signup-link {
+    text-align: center;
+    margin-top: 1rem;
+    color: #4caf50;
+}
+
+.signup-link:hover {
+    text-decoration: underline;
+    color: #388e3c;
+}
+
+.header, 
+.register-box, 
+.dashboard-container {
+    text-align: center;
+    background-color: #f9f9ed;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.header h1, 
+.register-title {
+    color: #4caf50;
+}
+
+.intro, 
+.features, 
+.cta {
+    margin: 20px 0;
+}
+
+.feature {
+    margin: 10px;
+    padding: 15px;
+    border: 1px solid #666;
+    border-radius: 5px;
+}
+
+.logout-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #e53935;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.logout-button:hover {
+    background-color: #c62828;
+}
+
+.back-link {
+    display: inline-block;
+    margin-top: 20px;
+    text-decoration: none;
+    color: #4caf50;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}

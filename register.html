@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="icon" href="LOGO.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="register.css">
+</head>
+<body>
+    <div class="register-container">
+        <div class="register-box">
+            <h1 class="register-title">Register</h1>
+            <form id="registerForm" onsubmit="return submitRegister(event)">
+                <input type="text" class="input-field" id="fullName" placeholder="Full Name" required>
+                <input type="email" class="input-field" id="email" placeholder="Email" required>
+                <input type="password" class="input-field" id="password" placeholder="Password" required>
+                <input type="password" class="input-field" id="confirmPassword" placeholder="Confirm Password" required>
+                
+                <a href="#" class="register-button" onclick="submitRegister(event)">Register</a>
+                
+                <p class="error-message" id="registerErrorMessage"></p>
+                
+                <p class="signup-link">Already have an account? <a href="login.html">Login</a></p>
+                <p class="signup-link"><a href="index.html">Back to Home</a></p>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        function submitRegister(event) {
+            event.preventDefault();
+            const fullName = document.getElementById('fullName').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+
+            if (password !== confirmPassword) {
+                document.getElementById('registerErrorMessage').innerText = 'Passwords do not match.';
+                return;
+            }
+
+            const backendUrl = 'https://your-backend-url.com/register';
+
+            fetch(backendUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ fullName, email, password })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    window.location.href = 'login.html';
+                } else {
+                    document.getElementById('registerErrorMessage').innerText = data.message || 'Registration failed';
+                }
+            })
+            .catch(error => {
+                document.getElementById('registerErrorMessage').innerText = 'An error occurred. Please try again.';
+                console.error('Error:', error);
+            });
+        }
+    </script>
+</body>
+</html>
